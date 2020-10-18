@@ -32,5 +32,8 @@ kotlin {
 
     jvm {
         withJava()
+        jvmJar {
+            archiveName = "${project.name}-${project.version}.jar"
+        }
     }
 }
