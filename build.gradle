@@ -1,5 +1,7 @@
 plugins {
     id 'org.jetbrains.kotlin.multiplatform' version '1.3.72'
+    id 'maven'
+    id 'maven-publish'
 }
 
 group 'com.unison'
@@ -34,6 +36,10 @@ kotlin {
         withJava()
         jvmJar {
             archiveName = "${project.name}-${project.version}.jar"
+            manifest {
+                attributes('Implementation-Title': project.name,
+                        'Implementation-Version': project.version)
+            }
         }
     }
 }
